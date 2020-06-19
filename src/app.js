@@ -1,33 +1,22 @@
 const express = require("express");
 const cors = require("cors");
 
-// const { uuid } = require("uuidv4");
+const controller = require("./controller");
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-const repositories = [];
 
-app.get("/repositories", (request, response) => {
-  // TODO
-});
+app.get("/repositories", controller.read);
 
-app.post("/repositories", (request, response) => {
-  // TODO
-});
+app.post("/repositories", controller.create);
 
-app.put("/repositories/:id", (request, response) => {
-  // TODO
-});
+app.put("/repositories/:id", controller.update);
 
-app.delete("/repositories/:id", (request, response) => {
-  // TODO
-});
+app.delete("/repositories/:id", controller.remove);
 
-app.post("/repositories/:id/like", (request, response) => {
-  // TODO
-});
+app.post("/repositories/:id/like", controller.likeIt);
 
 module.exports = app;
